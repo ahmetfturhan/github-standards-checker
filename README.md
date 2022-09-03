@@ -146,8 +146,8 @@ Override:
 
 GitHub Personal Access Token, Base URL, Requirements YAML path and Override YAML path needs to be set as environment variables.
 ```
-    ACCESS_TOKEN = ghp_6zB...
-    BASE_URL = https://github.pkgms.com/api/v3
+    ACCESS_TOKEN = ghp_8zV...
+    BASE_URL = https://github.{YOUR_ENTERPRISE}.com/api/v3
     REQ_PATH = /etc/config/requirements/requirements.yaml
     OVERRIDE_PATH = /etc/config/override/override.yaml
 ```
