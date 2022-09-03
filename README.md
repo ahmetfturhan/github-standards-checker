@@ -34,7 +34,7 @@ Organizations: //All repositories of the specified organization will be checked
     - org_name2
 
 OrganizationStandards:
-    Organization: cloud-interns
+    Organization: an-organization
         Repository:
             Repository Rules Here
 
@@ -57,7 +57,7 @@ override.yaml file is under /config directory. Structure of the YAML file is as 
 
 ```
 Override:
-  - Organization: cloud-interns
+  - Organization: an-organization
     repoName: test-repo-settings
     Repository:
       delete_branch_on_merge: true
@@ -82,10 +82,10 @@ Override:
   ### Example:
   ```yaml
     Organizations:
-      - cloud-interns
+      - an-organization
 
     OrganizationStandards:
-      - Organization: cloud-interns
+      - Organization: an-organization
       
         Repository:
           delete_branch_on_merge: false
@@ -137,7 +137,7 @@ Override:
 
     ```
     Override:
-      - Organization: cloud-interns
+      - Organization: an-organization
         repoName: test-repo-settings
         Repository:
           delete_branch_on_merge: true
@@ -191,11 +191,11 @@ Protection:
     enabled: false
   branch_restrictions:
     users:
-      - login: krisztian
-      - login: serhat
-      - login: ilyas
+      - login: dicaprio
+      - login: hardy
+      - login: mcqueen
     teams:
-      - slug: team-of-cloud-team
+      - slug: team-of-another-organization
     apps:
       - slug: app-name
 ```
@@ -221,16 +221,16 @@ Team:
 ```yaml
 #Requirements YAML
 Organizations:
-    - cloud-team
+    - another-organization
 
 OrganizationStandards:
-  - Organization: cloud-team
+  - Organization: another-organization
     Repository:
         delete_branch_on_merge: true
 
 #Override YAML
 Override:
-  - Organization: cloud-team
+  - Organization: another-organization
     repo_name: repo1
     Repository:
       delete_branch_on_merge: false
@@ -240,15 +240,15 @@ Override:
 ### You want to check the rules for two organizations
 ```yaml
 Organizations:
-  - cloud-team
-  - tech-ops
+  - sample-org
+  - another-org
 
 OrganizationStandards:
- - Organization: cloud-team
+ - Organization: sample-org
    Repository:
       delete_branch_on_merge: true
 
- - Organization: tech-ops
+ - Organization: another-org
    Repository:
       delete_branch_on_merge: false
 ```
