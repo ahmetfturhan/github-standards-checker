@@ -1,4 +1,4 @@
-# GitHub Standards Checker
+# GitHub Repository Rules Differences
 
 ## Features
 This tool fetches the repository settings from GitHub API and compares it with the predefined rules. Then, states the differences if there are any.
@@ -10,6 +10,20 @@ This tool fetches the repository settings from GitHub API and compares it with t
 - Checking if the specified team (or multiple) is present with the given permissions, and stating any differences.
 
 - Checking if the CODEOWNERS file exists.
+
+# Running w/Kubernetes
+You can initialize ConfigMaps, Secrets, Service Accounts & create a CronJob using this command;
+```
+kubectl apply -k base
+```
+
+# Running w/Docker
+You can run as a Docker Container using this command,
+```
+docker build --tag github-checker .  
+
+docker run -e ACCESS_TOKEN={ACCESS_TOKEN} -e BASE_URL={BASE_URL} -e REQ_PATH={REQ_PATH} -e OVERRIDE_PATH={OVERRIDE_PATH} github-checker
+```
 
 # Requirements
 
@@ -146,7 +160,7 @@ Override:
 
 GitHub Personal Access Token, Base URL, Requirements YAML path and Override YAML path needs to be set as environment variables.
 ```
-    ACCESS_TOKEN = ghp_8zV...
+    ACCESS_TOKEN = ghp_8zQ...
     BASE_URL = https://github.{YOUR_ENTERPRISE}.com/api/v3
     REQ_PATH = /etc/config/requirements/requirements.yaml
     OVERRIDE_PATH = /etc/config/override/override.yaml
