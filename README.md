@@ -1,4 +1,4 @@
-# GitHub Repository Rules Differences
+# GitHub Standards Checker
 
 ## Features
 This tool fetches the repository settings from GitHub API and compares it with the predefined rules. Then, states the differences if there are any.
