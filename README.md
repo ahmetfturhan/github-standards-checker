@@ -11,6 +11,20 @@ This tool fetches the repository settings from GitHub API and compares it with t
 
 - Checking if the CODEOWNERS file exists.
 
+# Running w/Kubernetes
+You can initialize ConfigMaps, Secrets, Service Accounts & create a CronJob using this command;
+```
+kubectl apply -k base
+```
+
+# Running w/Docker
+You can run as a Docker Container using this command,
+```
+docker build --tag github-checker .  
+
+docker run -e ACCESS_TOKEN={ACCESS_TOKEN} -e BASE_URL={BASE_URL} -e REQ_PATH={REQ_PATH} -e OVERRIDE_PATH={OVERRIDE_PATH} github-checker
+```
+
 # Requirements
 
 requirements-list.yaml file under /config directory. Structure of the YAML file is as follows,
@@ -146,8 +160,8 @@ Override:
 
 GitHub Personal Access Token, Base URL, Requirements YAML path and Override YAML path needs to be set as environment variables.
 ```
-    ACCESS_TOKEN = ghp_6zB...
-    BASE_URL = https://github.pkgms.com/api/v3
+    ACCESS_TOKEN = ghp_8zQ...
+    BASE_URL = https://github.{YOUR_ENTERPRISE}.com/api/v3
     REQ_PATH = /etc/config/requirements/requirements.yaml
     OVERRIDE_PATH = /etc/config/override/override.yaml
 ```
