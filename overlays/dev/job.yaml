@@ -1,0 +1,17 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: docker-ghub
+spec:
+  schedule: "*/10 * * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          serviceAccountName: mater
+          containers:
+          - name: hello
+            env:
+              - name: DENEME
+                value: "asdasdadsasd"
+

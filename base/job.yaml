@@ -1,0 +1,81 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: docker-ghub-v2
+spec:
+  schedule: "*/10 * * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          serviceAccountName: mater
+          containers:
+          - name: hello
+            image: mcqueen95/docker-ghub-v2:latest
+            imagePullPolicy: IfNotPresent
+            volumeMounts:
+              - name: requirements-list
+                mountPath: /etc/config/requirements
+
+              - name: override-list
+                mountPath: /etc/config/override
+
+              - mountPath: /override-yamls
+                name: override-yamls
+
+              - mountPath: /reqlist-yamls
+                name: reqlist-yamls
+
+              - mountPath: /standard-yamls
+                name: standard-yamls
+
+              - mountPath: /empty-yaml
+                name: empty-yaml
+
+            env:
+              - name: ACCESS_TOKEN
+                valueFrom:
+                  secretKeyRef:
+                    name: api
+                    key: ACCESS_TOKEN
+                    optional: false
+
+              - name: BASE_URL
+                value: "https://github.pkgms.com/api/v3"
+
+              - name: REQ_PATH
+                value: "/etc/config/requirements/requirements.yaml"
+
+              - name: OVERRIDE_PATH
+                value: "/etc/config/override/override.yaml"
+            resources:
+              requests:
+                cpu: "250m"
+                memory: "400M"
+              limits:
+                cpu: "500m"
+                memory: "800M"
+          volumes:
+            - name: requirements-list
+              configMap:
+                name: requirements-list
+
+            - name: override-list
+              configMap:
+                name: override-list
+
+            - name: override-yamls
+              emptyDir: {}
+
+            - name: reqlist-yamls
+              emptyDir: {}
+
+            - name: standard-yamls
+              emptyDir: {}
+
+            - name: empty-yaml
+              emptyDir: {}
+
+
+
+          restartPolicy: Never

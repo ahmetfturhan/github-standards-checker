@@ -1,0 +1,44 @@
+Organizations:
+  - cloud-interns
+
+OrganizationStandards:
+  - Organization: cloud-interns
+  
+    Repository:
+      delete_branch_on_merge: false
+      allow_rebase_merge: false
+
+    Team:
+      - Slug: test-team
+        Permissions:
+          admin: false
+          maintain: true
+          pull: true
+          push: false
+          triage: true
+  
+      - Slug: another-team
+        Permissions:
+          admin: false
+          maintain: true
+          pull: true
+          push: false
+          triage: true
+              
+
+    Branches:
+      - branchName: main
+        Protection:
+          allow_deletions:
+            enabled: false
+          enforce_admins:
+            url: ajsdnkasjndajsd
+            enabled: true
+          allow_force_pushes:
+            enabled: true
+
+      - branchName: deneme
+        Protection:
+          allow_force_pushes:
+            enabled: false
+          

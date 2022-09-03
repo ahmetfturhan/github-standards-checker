@@ -1,0 +1,8 @@
+kind: Kustomization
+
+resources:
+  - job.yaml
+  - requirements-list.yaml
+  - secret.yaml
+  - service-account.yaml
+  - override.yaml

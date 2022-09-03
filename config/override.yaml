@@ -1,0 +1,15 @@
+Override:
+  - Organization: cloud-interns
+    repoName: test-repo-settings
+    Repository:
+      delete_branch_on_merge: true
+
+    Branches:
+      - branchName: main
+        Protection:
+          enforce_admins:
+            url: isthisworks
+          allow_force_pushes:
+            enabled: false
+          allow_deletions:
+            enabled: true
